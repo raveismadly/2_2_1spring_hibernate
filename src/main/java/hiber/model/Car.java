@@ -11,25 +11,18 @@ public class Car {
     private Long id;
     private String name;
     private int series;
-//    /@OneToOne(optional = false, mappedBy="car")
-    @OneToOne(targetEntity = hiber.model.User.class,mappedBy = "car")
-    public User user;
+
+    @OneToOne(mappedBy = "car", targetEntity = User.class)
+    private User user;
 
     public Car() {
     }
 
-//    public Car(String name, int series) {
-//        this.name = name;
-//        this.series = series;
-//    }
-
-    public User getUser() {
-        return user;
+    public Car(String name, int series) {
+        this.name = name;
+        this.series = series;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Long getId() {
         return id;
@@ -38,22 +31,22 @@ public class Car {
     public void setId(Long id) {
         this.id = id;
     }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public int getSeries() {
-//        return series;
-//    }
-//
-//    public void setSeries(int series) {
-//        this.series = series;
-//    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSeries() {
+        return series;
+    }
+
+    public void setSeries(int series) {
+        this.series = series;
+    }
 
 
 }

@@ -41,6 +41,7 @@ public class AppConfig {
    public LocalSessionFactoryBean getSessionFactory() {
       LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
       factoryBean.setDataSource(getDataSource());
+//      factoryBean.setPackagesToScan("hiber.model");
       
       Properties props=new Properties();
       props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
@@ -48,8 +49,7 @@ public class AppConfig {
       props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
 
       factoryBean.setHibernateProperties(props);
-      factoryBean.setAnnotatedClasses(User.class);
-//      factoryBean.setAnnotatedClasses(Car.class);
+      factoryBean.setAnnotatedClasses(User.class,Car.class);
       return factoryBean;
    }
 
